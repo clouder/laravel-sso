@@ -17,6 +17,20 @@ use GuzzleHttp;
 class LaravelSSOBroker extends SSOBroker
 {
     /**
+     * SSO server url public.
+     *
+     * @var string
+     */
+    protected $ssoServerUrlPublic;
+
+    /**
+     * SSO server url dmz.
+     *
+     * @var string
+     */
+    protected $ssoServerUrlDmz;
+    
+    /**
      * Generate request url.
      *
      * @param string $command
@@ -44,6 +58,8 @@ class LaravelSSOBroker extends SSOBroker
     protected function setOptions()
     {
         $this->ssoServerUrl = config('laravel-sso.serverUrl', null);
+        $this->ssoServerUrlDmz = config('laravel-sso.serverUrl', null);
+        $this->ssoServerUrlPublic = config('laravel-sso.serverUrlPublic', null);
         $this->brokerName = config('laravel-sso.brokerName', null);
         $this->brokerSecret = config('laravel-sso.brokerSecret', null);
 
@@ -72,7 +88,13 @@ class LaravelSSOBroker extends SSOBroker
         Cookie::queue(Cookie::make($this->getCookieName(), $this->token, 60));
 
         // ... and attach it to broker session in SSO server.
+        if (!empty($this->ssoServerUrlPublic)) {
+            $this->ssoServerUrl = $this->ssoServerUrlPublic;
+        }
         $this->attach();
+        if (!empty($this->ssoServerUrlPublic)) {
+            $this->ssoServerUrl = $this->ssoServerUrlDmz;
+        }
     }
 
     /**

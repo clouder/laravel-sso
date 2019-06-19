@@ -1,12 +1,9 @@
 # Simple PHP SSO integration for Laravel
 
-[![Latest Stable Version](https://poser.pugx.org/zefy/laravel-sso/v/stable)](https://packagist.org/packages/zefy/laravel-sso)
-[![Total Downloads](https://poser.pugx.org/zefy/laravel-sso/downloads)](https://packagist.org/packages/zefy/laravel-sso)
-[![Latest Unstable Version](https://poser.pugx.org/zefy/laravel-sso/v/unstable)](https://packagist.org/packages/zefy/laravel-sso)
-[![License](https://poser.pugx.org/zefy/laravel-sso/license)](https://packagist.org/packages/zefy/laravel-sso)
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/zefy/laravel-sso/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/zefy/laravel-sso/?branch=master)
-[![Build Status](https://scrutinizer-ci.com/g/zefy/laravel-sso/badges/build.png?b=master)](https://scrutinizer-ci.com/g/zefy/laravel-sso/build-status/master)
-[![Code Intelligence Status](https://scrutinizer-ci.com/g/zefy/laravel-sso/badges/code-intelligence.svg?b=master)](https://scrutinizer-ci.com/code-intelligence)
+[![Latest Stable Version](https://poser.pugx.org/ateam-group/laravel-sso/v/stable)](https://poser.pugx.org/ateam-group/laravel-sso/v/stable)
+[![Total Downloads](https://poser.pugx.org/ateam-group/laravel-sso/downloads)](https://packagist.org/packages/ateam-group/laravel-sso)
+[![Latest Unstable Version](https://poser.pugx.org/ateam-group/laravel-sso/v/unstable)](https://packagist.org/packages/ateam-group/laravel-sso)
+[![License](https://poser.pugx.org/ateam-group/laravel-sso/license)](https://packagist.org/packages/ateam-group/laravel-sso)
 
 <p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
 
@@ -30,7 +27,7 @@ Client visits Broker and unique token is generated. When new token is generated 
 ### Server
 Install this package using composer.
 ```shell
-$ composer require zefy/laravel-sso
+$ composer require ateam-group/laravel-sso
 ```
 
 
@@ -67,7 +64,7 @@ $ php artisan sso:broker:create {name}
 ### Broker
 Install this package using composer.
 ```shell
-$ composer require zefy/laravel-sso
+$ composer require ateam-group/laravel-sso
 ```
 
 
@@ -85,6 +82,7 @@ Change `type` value in `config/laravel-sso.php` file from `server`
 Set 3 new options in your `.env` file:
 ```shell
 SSO_SERVER_URL=
+SSO_SERVER_URL_PUBLIC=
 SSO_BROKER_NAME=
 SSO_BROKER_SECRET=
 ```
@@ -141,6 +139,7 @@ That's all. For other Broker pages you should repeat everything from the beginni
 Example `.env` options:
 ```shell
 SSO_SERVER_URL=https://server.test
+SSO_SERVER_URL_PUBLIC=https://server.com
 SSO_BROKER_NAME=site1
 SSO_BROKER_SECRET=892asjdajsdksja74jh38kljk2929023
 ```
